@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Сервис учета студентов</title>
+        <meta name="description"
+              content="Система Учета Учебных Заведений">
+
+        <!-- Include Style -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/main.css">
+
+<!--        <style type="text/css"> .col-sm-12, .col-sm-4, .col-sm-8 {border: 1px solid red;}</style>-->
+
+    </head>
+    <body>
+
+        <!-- Start Container -->
+        <div class="container">
+            <!-- Start Header -->
+            <div class="row mt-3" id="header">
+
+                <!-- Logo -->
+                <div class="col-sm-8">
+                    <h1>Сервис Учета Студентов</h1>
+                </div>
+                <!-- Groups Selector -->
+                <div class="col-sm-4 d-flex" id="group-selector">
+                    <label for="group"><strong>Група:</strong></label>
+                    <select class="custom-select" name="group" id="group">
+                        <option value="">Все студенты</option>
+                        <option value="">МтМ - 21, Литвинов Дмитрий (№ 254)</option>
+                        <option value="">МтМ - 22, Виталий Подоба (№ 410)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- End Header -->
+
+            <!-- Start SubHeader -->
+            <div class="row" id="sub-header">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                             <a class="nav-link active" aria-current="page" href="#">Студенты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Посетители</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Групи</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End SubHeader -->
+
+            <!-- Start Main Page Content -->
+            <div class="row" id="content-columns">
+                <div class="col-sm-12" id="content-column">
+
+                    <!--Status Message-->
+                    <div class="alert alert-warning" role="alert">
+                        Изменения отменены
+                    </div>
+
+                    <h2 class="my-3">База Студентов</h2>
+
+                    <!-- Add Student Button -->
+                    <a class="btn btn-primary mb-3" href="#" role="button">
+                        Добавить студента
+                    </a>
+                    <!-- Start Students Listing -->
+                    <table class="table table-hover table-striped">
+                        <thead>
+                            <tr>
+                                <th><a href="">№</a></th>
+                                <th>Фото</th>
+                                <th><a href="">Фамилия &uarr;</a></th>
+                                <th><a href="#">Имя</a></th>
+                                <th><a href="#">№ Билета</a></th>
+                                <th>Действие</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td><img src="./img/Podoba.jpg" height="35" width="35" class="rounded-circle"></td>
+                                <td>Литвинов</td>
+                                <td>Дмитрий</td>
+                                <td>410</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Действия
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Редактировать</a>
+                                            <a class="dropdown-item" href="#">Посещения</a>
+                                            <a class="dropdown-item" href="#">Удалить</a>
+                                        </div>
+</                                      div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td><img src="./img/Kashparov.jpg" height="35" width="35"  class="rounded-circle"></td>
+                                <td>Кашпаров</td>
+                                <td>Максим</td>
+                                <td>412</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Действия
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Редактировать</a>
+                                            <a class="dropdown-item" href="#">Посещения</a>
+                                            <a class="dropdown-item" href="#">Удалить</a>
+                                        </div>
+</                                      div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td><img src="./img/Bohak.jpg" height="35" width="35"  class="rounded-circle"></td>
+                                <td>Кашпарова</td>
+                                <td>Мария</td>
+                                <td>422</td>
+                                <td>
+                                    <div class="dropdown">
+                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            Действия
+                                        </button>
+                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                            <a class="dropdown-item" href="#">Редактировать</a>
+                                            <a class="dropdown-item" href="#">Посещения</a>
+                                            <a class="dropdown-item" href="#">Удалить</a>
+                                        </div>
+</                                      div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <nav aria-label="Page navigation example">
+                      <ul class="pagination">
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                          </a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">1</a>
+                        </li>
+                        <li class="page-item active">
+                            <a class="page-link" href="#">2</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">3</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">4</a>
+                        </li>
+                        <li class="page-item">
+                            <a class="page-link" href="#">5</a>
+                        </li>
+                        <li class="page-item">
+                          <a class="page-link" href="#" aria-label="Next">
+                            <span aria-hidden="true">&raquo;</span>
+                          </a>
+                        </li>
+                      </ul>
+                    </nav>
+                    <!-- End Students Listing -->
+                </div>
+            </div>
+            <!-- End Main Page Content -->
+
+            <!-- Start Footer -->
+            <div class="row" id="footer">
+                <div class="col-sm-12">
+                    &copy; 2022 Сервис Учета Студентов
+                </div>
+            </div>
+            <!-- End Footer -->
+
+        </div>
+        <!-- End Container -->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+    </body>
+</html>

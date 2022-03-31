@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Сервис учета студентов</title>
+        <meta name="description"
+              content="Система Учета Учебных Заведений">
+
+        <!-- Include Style -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+        <link rel="stylesheet" href="./css/main.css">
+
+<!--        <style type="text/css"> .col-sm-12, .col-sm-4, .col-sm-8 {border: 1px solid red;}</style>-->
+
+    </head>
+
+    <body>
+
+    <div class="container">
+
+        <h1>Редактирование Студента </h1>
+
+        <!--Start Group-->
+            <div class="row mb-3">
+                  <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Группа</label>
+                  <div class="col-sm-3">
+                    <select class="form-select" aria-label="Default select example" id="group">
+                        <option selected>Test 1</option>
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                    </select>
+                  </div>
+            </div>
+        <!--End Group-->
+
+        <!-- Start Name-->
+            <div class="row mb-3">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Имя *</label>
+              <div class="col-sm-3">
+                <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Максим">
+              </div>
+            </div>
+         <!-- End Name-->
+
+        <!-- Start Second Name-->
+            <div class="row mb-3">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Фамилия *</label>
+              <div class="col-sm-3">
+                <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="Кашпаров">
+              </div>
+            </div>
+         <!-- End Second Name-->
+
+        <!-- Start Father Name-->
+            <div class="row mb-3">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Отчество</label>
+              <div class="col-sm-3">
+                <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder=" ">
+              </div>
+            </div>
+        <!-- End Father Name-->
+
+        <!-- Start Birthday-->
+            <div class="row mb-3">
+              <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm"> Дата рождения *</label>
+              <div class="col-sm-3">
+                <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="28.09.1993">
+              </div>
+            </div>
+        <!-- End Birthday-->
+
+        <!-- Start Change-->
+            <div class="input-group mb-3">
+              <input type="file" class="form-control" id="inputGroupFile04" aria-describedby="inputGroupFileAddon04" aria-label="Upload">
+              <button class="btn btn-outline-secondary" type="button" id="inputGroupFileAddon04">Browser</button>
+            </div>
+        <!-- End Change-->
+
+        <!-- Start Push Photo-->
+            <div class="input-group mb-3">
+              <input type="file" class="form-control" id="inputGroupFile02">
+              <label class="input-group-text" for="inputGroupFile02">Browse</label>
+                <div class="form-check">
+                  <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" checked>
+                  <label class="form-check-label" for="flexCheckChecked">
+                    Checked checkbox
+                  </label>
+                </div>
+            </div>
+        <!-- End Push Photo-->
+
+        <!-- Test -->
+        <div class="row mb-3" >
+            <label for="test" class="col-sm-1"> Фото</label>
+            <label class="input-group-text col-sm-1" for="test">Browse</label>
+            <div class="col-sm-3">
+                <input type="photo" class="form-control " value=" " id="test">
+            </div>
+
+            <div class="form-check col-sm-2">
+                <input class="form-check-input" type="checkbox" value="" id="flexCheckChecked" >
+                <label class="form-check-label" for="flexCheckChecked">
+                    Очистить
+                </label>
+            </div>
+
+        </div>
+        <!-- Test -->
+        <!-- Start Bilet-->
+            <div class="row mb-3">
+                <label for="colFormLabelSm" class="col-sm-2 col-form-label col-form-label-sm">Билет *</label>
+                <div class="col-sm-3">
+                    <input type="email" class="form-control form-control-sm" id="colFormLabelSm" placeholder="456">
+                </div>
+            </div>
+        <!-- End Bilet-->
+
+        <!-- Start Comment-->
+            <div class="mb-3">
+                <label for="exampleFormControlTextarea1" class="form-label">Example textarea</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+            </div>
+        <!-- End Comment-->
+
+        <!--Start Button Saved-->
+            <button type="button" class="btn btn-primary">Сохранить</button>
+        <!--Start Button Saved-->
+
+        <!--Start Button Cancel-->
+            <button type="button" class="btn btn-primary">Отменить</button>
+        <!--End Button Cancel-->
+
+    </div>
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+    </body>

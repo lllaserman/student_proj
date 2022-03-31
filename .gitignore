@@ -1,0 +1,8 @@
+*.pyc
+*~
+*.egg-info
+*.mo
+*.egg
+env/
+db.sqlite3
+*.DS_Store
