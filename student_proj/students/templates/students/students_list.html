@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="ru">
     <head>
@@ -11,7 +13,11 @@
             href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
             integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
             crossorigin="anonymous">
-        <link rel="stylesheet" href="./css/main.css">
+        <link rel="stylesheet"
+              href="{% static 'css/main.css' %}">
+
+<!--        <link rel="stylesheet"-->
+<!--              href="{% static 'img/Kashparov.jpg' %}">-->
 
 <!--        <style type="text/css"> .col-sm-12, .col-sm-4, .col-sm-8 {border: 1px solid red;}</style>-->
 
@@ -86,63 +92,27 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><img src="./img/Podoba.jpg" height="35" width="35" class="rounded-circle"></td>
-                                <td><a href="{% url "students_edit" 1 %}">Литвинов</a></td>
-                                <td><a href="{% url "students_edit" 1 %}">Дмитрий</a></td>
-                                <td>410</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Действия
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{% url "students_edit" 1 %}">Редактировать</a>
-                                            <a class="dropdown-item" href="/journal/1">Посещения</a>
-                                            <a class="dropdown-item" href="{% url "students_delete" 1 %}">Удалить</a>
+                            {% for student in students %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td>
+                                    <td><img src="{% static student.image %}" height="35" width="35" class="rounded-circle"></td>
+                                    <td><a href="{% url "students_edit" student.id %}">{{ student.last_name }}</a></td>
+                                    <td><a href="{% url "students_edit" student.id %}">{{ student.first_name }}</a></td>
+                                    <td>{{ student.ticket }}</td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  >
+                                                Действия
+                                            </button>
+                                            <div class="dropdown-menu" >
+                                                <a class="dropdown-item" href="{% url "students_edit" student.id %}">Редактировать</a>
+                                                <a class="dropdown-item" href="/journal/{{ student.id }}">Посещения</a>
+                                                <a class="dropdown-item" href="{% url "students_delete" student.id %}">Удалить</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><img src="./img/Kashparov.jpg" height="35" width="35"  class="rounded-circle"></td>
-                                <td><a href="{% url "students_edit" 2 %}">Кашпаров</a></td>
-                                <td><a href="{% url "students_edit" 2 %}">Максим</a></td>
-                                <td>412</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Действия
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{% url "students_edit" 2 %}">Редактировать</a>
-                                            <a class="dropdown-item" href="/journal/2">Посещения</a>
-                                            <a class="dropdown-item" href="{% url "students_delete" 2 %}">Удалить</a>
-                                        </div>
-</                                      div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td><img src="./img/Bohak.jpg" height="35" width="35"  class="rounded-circle"></td>
-                                <td><a href="{% url "students_edit" 3 %}">Кашпарова</a></td>
-                                <td><a href="{% url "students_edit" 3 %}">Мария</a></td>
-                                <td>422</td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Действия
-                                        </button>
-                                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                            <a class="dropdown-item" href="{% url "students_edit" 3 %}">Редактировать</a>
-                                            <a class="dropdown-item" href="/journal/3">Посещения</a>
-                                            <a class="dropdown-item" href="{% url "students_delete" 3 %}">Удалить</a>
-                                        </div>
-</                                      div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">
