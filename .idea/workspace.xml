@@ -3,6 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="94924626-3ca4-46ae-b0c0-eeb6726c9775" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_proj/static/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/static/form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_proj/static/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/static/groups.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student_proj/students/templates/students/students_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/templates/students/students_list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student_proj/students/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/views.py" afterDir="false" />
     </list>
@@ -13,6 +15,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />

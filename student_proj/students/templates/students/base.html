@@ -1,0 +1,106 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ru">
+    <head>
+        <meta charset="UTF-8">
+        <title>Сервис учета студентов - {% block meta_title %} {% endblock meta_title %}</title>
+        <meta name="description"
+              content="Система Учета Учебных Заведений">
+
+        <!-- Include Style -->
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css"
+            integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh"
+            crossorigin="anonymous">
+        <link rel="stylesheet"
+              href="{% static 'css/main.css' %}">
+        {% block extra_css %}{% endblock extra_css %}
+
+    </head>
+    <body>
+
+        <!-- Start Container -->
+        <div class="container">
+            <!-- Start Header -->
+            <div class="row mt-3" id="header">
+
+                <!-- Logo -->
+                <div class="col-sm-8">
+                    <h1>Сервис Учета Студентов</h1>
+                </div>
+                <!-- Groups Selector -->
+                <div class="col-sm-4 d-flex" id="group-selector">
+                    <label for="group"><strong>Група:</strong></label>
+                    <select class="custom-select" name="group" id="group">
+                        <option value="">Все студенты</option>
+                        <option value="">МтМ - 21, Литвинов Дмитрий (№ 254)</option>
+                        <option value="">МтМ - 22, Виталий Подоба (№ 410)</option>
+                    </select>
+                </div>
+            </div>
+            <!-- End Header -->
+
+            <!-- Start SubHeader -->
+            <div class="row" id="sub-header">
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs">
+                        <li class="nav-item">
+                             <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Студенты</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/journal">Посетители</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link " href="{% url 'groups'  %}">Групи</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- End SubHeader -->
+
+            <!-- Start Main Page Content -->
+            <div class="row" id="content-columns">
+                <div class="col-sm-12" id="content-column">
+
+                    <!--Status Message-->
+                    {% comment "Not used alert so far" %}
+                        <div class="alert alert-warning" role="alert">
+                            Изменения отменены
+                        </div>
+                    {% endcomment %}
+
+
+                    <!-- Add Student Button -->
+                    <h2>{% block title %}{% endblock title %}</h2>
+                    {% block content %}{% endblock content %}
+
+                </div>
+            </div>
+            <!-- End Main Page Content -->
+
+            <!-- Start Footer -->
+            <div class="row" id="footer">
+                <div class="col-sm-12">
+                    &copy; 2022 Сервис Учета Студентов
+                </div>
+            </div>
+            <!-- End Footer -->
+
+        </div>
+        <!-- End Container -->
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                crossorigin="anonymous"></script>
+        {% block extra_js %}{% endblock extra_js %}
+    </body>
+</html>
