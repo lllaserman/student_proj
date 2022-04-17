@@ -3,9 +3,10 @@
 
 {% block meta_title %} Группи {% endblock meta_title %}
 {% block title %} База Групп {% endblock title %}
+
 {% block content %}
                     <!-- Add Student Button -->
-                    <a class="btn btn-primary mb-3" href="{% url "groups_add" %}" role="button">
+                    <a class="btn btn-primary mb-3" href="{% url 'groups_add' %}" role="button">
                         Добавить Группу
                     </a>
                     <!-- Start Students Listing -->
@@ -19,40 +20,25 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr>
-                                <td>1</td>
-                                <td><a href="{% url "groups_edit" 1 %}">МТМ-21</a></td>
-                                <td><a href="{% url "students_edit" 2 %}">Дмитрий Литвино</a></td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Действия
-                                        </button>
-                                        <div class="dropdown-menu" >
-                                            <a class="dropdown-item" href="{% url "groups_edit" 1 %}">Редактировать</a>
-                                            <a class="dropdown-item" href="#">Посещения</a>
-                                            <a class="dropdown-item" href="{% url "groups_delete" 1 %}">Удалить</a>
+                            {% for student in students  %}
+                                <tr>
+                                    <td>{{ forloop.counter}}</td>
+                                    <td><a href="{% url 'groups_edit' student.group %}">{{ student.group }}</a></td>
+                                    <td><a href="{% url 'students_edit' student.id %}">{{ student.last_name }} {{ student.first_name }}</a></td>
+                                    <td>
+                                        <div class="dropdown">
+                                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                Действия
+                                            </button>
+                                            <div class="dropdown-menu" >
+                                                <a class="dropdown-item" href="{% url 'groups_edit' student.group %}">Редактировать</a>
+                                                <a class="dropdown-item" href="#">Посещения</a>
+                                                <a class="dropdown-item" href="{% url 'groups_delete' student.group %}">Удалить</a>
+                                            </div>
                                         </div>
-                                    </div>
-                                </td>
-                            </tr>
-                            <tr>
-                                <td>2</td>
-                                <td><a href="{% url "groups_edit" 2 %}">МТМ-22</a></td>
-                                <td><a href="{% url "students_edit" 2 %}">Максим Кашпаров</a></td>
-                                <td>
-                                    <div class="dropdown">
-                                        <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Действия
-                                        </button>
-                                        <div class="dropdown-menu" >
-                                            <a class="dropdown-item" href="{% url "groups_edit" 2 %}">Редактировать</a>
-                                            <a class="dropdown-item" href="#">Посещения</a>
-                                            <a class="dropdown-item" href="{% url "groups_delete" 2 %}">Удалить</a>
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
+                                    </td>
+                                </tr>
+                            {% endfor %}
                         </tbody>
                     </table>
                     <nav aria-label="Page navigation example">

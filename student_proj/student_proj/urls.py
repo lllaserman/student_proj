@@ -26,10 +26,10 @@ urlpatterns = [
     path('groups/add/',
          stud_views.groups_add,
          name='groups_add'),
-    path('groups/<int:gid>/edit/',
+    path('groups/<str:gid>/edit/',
          stud_views.groups_edit,
          name='groups_edit'),
-    path('groups/<int:gid>/delete/',
+    path('groups/<str:gid>/delete/',
          stud_views.groups_delete,
          name='groups_delete'),
 
