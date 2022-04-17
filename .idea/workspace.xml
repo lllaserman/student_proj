@@ -3,15 +3,20 @@
   <component name="ChangeListManager">
     <list default="true" id="94924626-3ca4-46ae-b0c0-eeb6726c9775" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_proj/static/form.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/static/form.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_proj/static/groups.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/static/groups.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_proj/students/templates/students/students_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/templates/students/students_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_proj/students/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_proj/student_proj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/student_proj/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_proj/students/templates/students/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/templates/students/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
