@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="94924626-3ca4-46ae-b0c0-eeb6726c9775" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_proj/student_proj/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/student_proj/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/student_proj/student_proj/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/student_proj/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_proj/students/templates/students/groups_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/templates/students/groups_list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/student_proj/students/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/student_proj/students/templates/students/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/student_proj/students/templates/students/base.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -35,6 +33,9 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="26apDqjtmESfdD8FNR33EvMeC3B" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
