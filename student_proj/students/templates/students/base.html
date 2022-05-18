@@ -27,16 +27,19 @@
 
                 <!-- Logo -->
                 <div class="col-sm-8">
-                    <h1>Сервис Учета Студентов</h1>
+                    <h1>{% block logo %}Сервис Учета Студентов{% endblock logo %}</h1>
                 </div>
                 <!-- Groups Selector -->
                 <div class="col-sm-4 d-flex" id="group-selector">
-                    <label for="group"><strong>Група:</strong></label>
-                    <select class="custom-select" name="group" id="group">
-                        <option value="">Все студенты</option>
-                        <option value="">МтМ - 21, Литвинов Дмитрий (№ 254)</option>
-                        <option value="">МтМ - 22, Виталий Подоба (№ 410)</option>
-                    </select>
+                        <label for="group"><strong>Группа:</strong></label>
+                        <select class="custom-select" name="group" id="group">
+                            <option value="">Все студенты</option>
+                            {% block groups %}
+                                {% for student in students %}
+                                    <option value="#">{{ student.group }}, {{ student.last_name }} {{ student.first_name }}, {{ student.ticket }}</option>
+                                {% endfor %}
+                            {% endblock groups %}
+                        </select>
                 </div>
             </div>
             <!-- End Header -->
@@ -80,11 +83,15 @@
             <!-- End Main Page Content -->
 
             <!-- Start Footer -->
-            <div class="row" id="footer">
-                <div class="col-sm-12">
-                    &copy; 2022 Сервис Учета Студентов
+
+                <div class="row" id="footer">
+                    <div class="col-sm-12">
+                        {% block footer %}
+                            &copy; 2022 Сервис Учета Студентов
+                        {% endblock footer %}
+                    </div>
                 </div>
-            </div>
+
             <!-- End Footer -->
 
         </div>
