@@ -1,6 +1,7 @@
 from django.contrib import admin
 from django.urls import path
-# from students import views as stud_views
+from django.conf import settings
+from django.conf.urls.static import static
 from students.views import journals, groups, students
 
 
@@ -40,4 +41,4 @@ urlpatterns = [
          name='journal'),
 
     path('admin/', admin.site.urls),
-]
+] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
