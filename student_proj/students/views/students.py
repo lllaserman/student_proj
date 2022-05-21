@@ -5,6 +5,7 @@ from django.http import HttpResponse
 from students.models import Student
 #  Views for Students
 
+
 def students_list(request):
     students = Student.objects.all()
 
