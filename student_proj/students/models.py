@@ -35,6 +35,13 @@ class Student(models.Model):
         blank=False,
         verbose_name="Билет"
     )
+    student_group = models.ForeignKey(
+        'Group',
+        verbose_name="Группа",
+        blank=False,
+        null=True,
+        on_delete=models.PROTECT
+    )
     notes = models.TextField(
         blank=True,
         verbose_name="Дополнительные заметки"
@@ -49,7 +56,7 @@ class Student(models.Model):
         Return the first_name plus the last_name, with a space in betwen.
         """
 
-        full_name = '%s %s' % (self.first_name, self.last_name)
+        full_name = '%s %s' % (self.first_name, self.last_name )
         return full_name.strip()
 
 
