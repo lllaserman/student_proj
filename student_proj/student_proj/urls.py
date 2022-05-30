@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from students.views import journals, groups, students
+from students.views import journals, groups, students, exams
 
 
 urlpatterns = [
@@ -35,10 +35,24 @@ urlpatterns = [
          name='groups_delete'),
 
     #Journal urls
-
     path('journal/',
          journals.students_add,
          name='journal'),
+    
+    # Exam urls
+    path('exam/',
+         exams.exams_list,
+         name='exam'),
+    path('exam/add/',
+        exams.exams_add,
+        name='exam_add'),
+    path('exam/<int:sid>/edit/',
+        exams.exams_edit,
+        name='exam_edit'),
+    path('exam/<int:sid>/delete/',
+        exams.exams_delete,
+        name='exam_delete'),
+    
 
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
