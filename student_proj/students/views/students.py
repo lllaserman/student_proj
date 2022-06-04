@@ -2,6 +2,8 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 from django.urls import reverse
+from datetime import datetime
+from django.contrib import messages
 
 from students.models.student import Student
 from students.models.group import Group
@@ -61,6 +63,7 @@ def students_add(request):
 
             # errors collection
             errors = {}
+
             # validate student data will go here
             data = {'middle_name' : request.POST.get('middle_name'),
                     'notes' : request.POST.get('notes')}
@@ -82,7 +85,12 @@ def students_add(request):
             if not birthday:
                 errors['birthday'] = "Дата рождения обязательна"
             else:
-                data['birthday'] = birthday
+                try:
+                    datetime.strptime(birthday, '%Y-%m-%d')
+                except Exception:
+                    errors['birthday'] = "Введите коректный формат (напр. 1984-12-30"
+                else:
+                    data['birthday'] = birthday
 
             ticket = request.POST.get('ticket', '').strip()
             if not ticket:
@@ -94,7 +102,11 @@ def students_add(request):
             if not student_group:
                 errors['student_group'] = "Группа обязательна"
             else:
-                data['student_group'] = student_group
+                group = Group.objects.filter(pk=student_group).first()
+                if group:
+                    data['student_group'] = group
+                else:
+                    errors['student_group'] = "Выберите существующую группу"
 
             photo = request.FILES.get('photo')
             if photo:
@@ -105,17 +117,21 @@ def students_add(request):
                 student = Student(**data)
                 student.save()
 
-                    # redirect to students list
+                # redirect to students list and show success
+                messages.success(request, 'Студент успешно добавлен')
                 return HttpResponseRedirect(reverse('home'))
 
             else:
                 # render form with errors and previous user input
+                messages.warning(request, 'Не правильно заполнена форма')
                 return render(request, 'students/students_add.html',
                               {'groups': Group.objects.all().order_by('title'),
                               'errors': errors})
 
         elif request.POST.get('cancel_button') is not None:
-            # redirect to home page on cancel button
+            # redirect to home page on cancel button and show alert
+            messages.info(request, 'Добавление студента отменено')
+            # return HttpResponseRedirect('%s?status_message=Добавление студента отменено' %reverse('home'))
             return HttpResponseRedirect(reverse('home'))
 
     else:

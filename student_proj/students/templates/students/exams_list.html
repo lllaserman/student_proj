@@ -5,97 +5,113 @@
 {% block title %} База Экзаменов {% endblock title %}
 
 {% block content %}
-                    <a class="btn btn-primary mb-3" href="{% url 'exam_add' %}" >
-                        Добавить экзамен
-                    </a>
-                    <!-- Start Students Listing -->
-                    <table class="table table-hover table-striped">
-                        {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-                            <thead>
-                                <tr>
-                                    <th>
-                                        <a href="{% url 'exam' %}?order_by=id{% if order_by == 'id' and reverse != '1' %}&amp;reverse=1 {% endif %}">
-                                            №
-                                            {% if order_by == 'id' and reverse != '1' %}&uarr;
-                                            {% elif order_by == 'id' and reverse == '1' %}&darr;
-                                            {% endif %}
-                                        </a>
-                                    </th>
-                                    <th>
-                                        <a href="{% url 'exam' %}?order_by=subject{% if order_by == 'subject' and reverse != '1' %}&amp;reverse=1{% endif %}">
-                                            Предмет
-                                            {% if order_by == 'subject' and reverse != '1' %}&uarr;
-                                            {% elif order_by == 'subject' and reverse == '1' %}&darr;
-                                            {% elif order_by == '' %}&uarr;
-                                            {% endif %}
-                                        </a>
-                                    </th>
-                                    <th>
-                                        <a href="{% url 'exam' %}?order_by=exam_group{% if order_by == 'exam_group' and reverse != '1' %}&amp;reverse=1{% endif %}">
-                                            Имя группы
-                                            {% if order_by == 'exam_group' and reverse != '1' %}&uarr;
-                                            {% elif order_by == 'exam_group' and reverse == '1' %}&darr;
-                                            {% endif %}
-                                        </a>
-                                    </th>
-                                    <th>
-                                        <a href="{% url 'exam' %}?order_by=date_exam{% if order_by == 'date_exam' and reverse != '1' %}&amp;reverse=1{% endif %}">
-                                            Дата экзамена
-                                            {% if order_by == 'date_exam' and reverse != '1' %}&uarr;
-                                            {% elif order_by == 'date_exam' and reverse == '1' %}&darr;
-                                            {% endif %}
-                                        </a>
-                                    </th>
-                                    <th>Действие</th>
-                                </tr>
-                            </thead>
-                        {% endwith %}
-                        <tbody>
-                            {% for exam in exams %}
-                                <tr>
-                                    <td>{{ exam.id }}</td>
-                                    <td>{{ exam.subject }}</td>
-                                    <td><a href="{% url 'exam_edit' exam.id %}">{{ exam.exam_group }}</a></td>
-                                    <td>{{ exam.date_exam }}</td>
-                                    <td>
-                                        <div class="dropdown">
-                                            <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  >
-                                                Действия
-                                            </button>
-                                            <div class="dropdown-menu" >
-                                                <a class="dropdown-item" href="{% url 'exam_edit' exam.id %}">Редактировать</a>
-                                                <a class="dropdown-item" href="/journal/{{ exam.id }}">Посещения</a>
-                                                <a class="dropdown-item" href="{% url 'exam_delete' exam.id %}">Удалить</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                            {% endfor %}
-                        </tbody>
-                    </table>
 
-                <!-- Start Groups Pagination -->
-                {% block pagination %}
-                    {% if exams.has_other_pages %}
-                      {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
-                        <nav aria-label="Page navigation">
-                          <ul class="pagination">
-                            <li class="page-item">
-                              <a class="page-link" href="{% url 'exam' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a>
-                            </li>
-                            {% for p in exams.paginator.page_range %}
-                                <li class="page-item {% if exams.number == p %} active {% endif %}">
-                                    <a class="page-link"  href="{% url 'exam' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
-                                </li>
-                            {% endfor %}
-                            <li class="page-item">
-                              <a class="page-link" href="{% url 'exam' %}?page={{ exams.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a>
-                            </li>
-                          </ul>
-                        </nav>
-                      {% endwith %}
-                    {% endif %}
-                {% endblock pagination %}
-                <!-- End Groups Pagination -->
-                    <!-- End Students Listing -->
+  <a class="btn btn-primary mb-3" href="{% url 'exam_add' %}" >
+    Добавить экзамен
+  </a>
+
+  <!-- Start Students Listing -->
+  <table class="table table-hover table-striped">
+    {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+      <thead>
+        <tr>
+
+          <th>
+            <a href="{% url 'exam' %}?order_by=id{% if order_by == 'id' and reverse != '1' %}&amp;reverse=1 {% endif %}">
+              №
+              {% if order_by == 'id' and reverse != '1' %}&uarr;
+              {% elif order_by == 'id' and reverse == '1' %}&darr;
+              {% endif %}
+            </a>
+          </th>
+
+          <th>
+            <a href="{% url 'exam' %}?order_by=subject{% if order_by == 'subject' and reverse != '1' %}&amp;reverse=1{% endif %}">
+              Предмет
+              {% if order_by == 'subject' and reverse != '1' %}&uarr;
+              {% elif order_by == 'subject' and reverse == '1' %}&darr;
+              {% elif order_by == '' %}&uarr;
+              {% endif %}
+            </a>
+          </th>
+
+          <th>
+            <a href="{% url 'exam' %}?order_by=exam_group{% if order_by == 'exam_group' and reverse != '1' %}&amp;reverse=1{% endif %}">
+              Имя группы
+              {% if order_by == 'exam_group' and reverse != '1' %}&uarr;
+              {% elif order_by == 'exam_group' and reverse == '1' %}&darr;
+              {% endif %}
+            </a>
+          </th>
+
+	        <th>
+            <a href="{% url 'exam' %}?order_by=date_exam{% if order_by == 'date_exam' and reverse != '1' %}&amp;reverse=1{% endif %}">
+              Дата экзамена
+              {% if order_by == 'date_exam' and reverse != '1' %}&uarr;
+              {% elif order_by == 'date_exam' and reverse == '1' %}&darr;
+              {% endif %}
+            </a>
+          </th>
+
+          <th>Действие</th>
+
+        </tr>
+
+      </thead>
+    {% endwith %}
+    <tbody>
+      {% for exam in exams %}
+        <tr>
+          <td>{{ exam.id }}</td>
+
+          <td>{{ exam.subject }}</td>
+
+          <td><a href="{% url 'exam_edit' exam.id %}">{{ exam.exam_group }}</a></td>
+
+          <td>{{ exam.date_exam }}</td>
+
+          <td>
+            <div class="dropdown">
+
+              <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown"  >
+                Действия
+              </button>
+
+              <div class="dropdown-menu" >
+                <a class="dropdown-item" href="{% url 'exam_edit' exam.id %}">Редактировать</a>
+                <a class="dropdown-item" href="/journal/{{ exam.id }}">Посещения</a>
+                <a class="dropdown-item" href="{% url 'exam_delete' exam.id %}">Удалить</a>
+              </div>
+
+            </div>
+          </td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+  <!-- Start Groups Pagination -->
+  {% block pagination %}
+    {% if exams.has_other_pages %}
+      {% with order_by=request.GET.order_by reverse=request.GET.reverse %}
+        <nav aria-label="Page navigation">
+          <ul class="pagination">
+            <li class="page-item">
+              <a class="page-link" href="{% url 'exam' %}?page=1&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&laquo;</a>
+            </li>
+            {% for p in exams.paginator.page_range %}
+                <li class="page-item {% if exams.number == p %} active {% endif %}">
+                    <a class="page-link"  href="{% url 'exam' %}?page={{ p }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">{{ p }}</a>
+                </li>
+            {% endfor %}
+            <li class="page-item">
+              <a class="page-link" href="{% url 'exam' %}?page={{ exams.paginator.num_pages }}&amp;order_by={{ order_by }}&amp;reverse={{ reverse }}">&raquo;</a>
+            </li>
+          </ul>
+        </nav>
+      {% endwith %}
+    {% endif %}
+  {% endblock pagination %}
+  <!-- End Groups Pagination -->
+<!-- End Students Listing -->
 {% endblock content %}
