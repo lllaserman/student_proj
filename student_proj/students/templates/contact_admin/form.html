@@ -1,0 +1,33 @@
+{% extends "students/base.html" %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+{% block meta_title %} Связь с Администратором {% endblock meta_title %}
+
+{% block title %} Связь с Администратором {% endblock title %}
+
+{% block status_message %}
+
+	{% if form.errors %}
+		<div class="alert alert-warning" role="alert">
+			Пожалуйста, исправте ошибки
+		</div>
+	{% endif %}
+
+	{{ block.super }}
+
+{% endblock status_message %}
+
+
+{% block content %}
+
+	{% crispy form %}
+<!--	<form action="{% url 'contact_admin' %}" method="POST">-->
+<!--		{% csrf_token %}-->
+
+<!--		{{ form.as_ul }}-->
+
+<!--		<input type="submit" value="Отправить" name="send_button">-->
+<!--	</form>-->
+
+{% endblock content %}

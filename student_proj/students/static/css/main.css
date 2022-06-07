@@ -7,10 +7,7 @@ h1, h2, h3, h4, h5, h6 {
     margin: 10px 0 5px 0;
 }
 
-#footer {
-    border-top: 1px solid #dee2e6;
-    padding-top: 10px;
-}
+
 
 /* Groups Selector */
 #group-selector {
@@ -25,3 +22,20 @@ h1, h2, h3, h4, h5, h6 {
 .table td {
     vertical-algin: middle;
 }
+
+/* Form Styles */
+textarea,
+select,
+input,
+.custom-file,
+.input-group {
+  max-width: 300px;
+}
+
+/* Footer Styles */
+#footer {
+    border-top: 1px solid #dee2e6;
+    padding-top: 10px;
+}
+
+

@@ -61,6 +61,9 @@
             <li class="nav-item">
               <a class="nav-link {% if '/exam' in request.path %}active{% endif %}" href="{% url 'exam'  %}">Экзамены</a>
             </li>
+	          <li class="nav-item">
+              <a class="nav-link {% if '/contact_admin' in request.path %}active{% endif %}" href="{% url 'contact_admin'  %}">Контакт</a>
+            </li>
           </ul>
         </div>
       </div>

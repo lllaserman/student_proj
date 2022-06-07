@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from students.views import journals, groups, students, exams
+from students.views import journals, groups, students, exams, contact_admin
 
 
 urlpatterns = [
@@ -53,6 +53,10 @@ urlpatterns = [
         exams.exams_delete,
         name='exam_delete'),
     
-
+    # Contact Admin Form
+    path('contact-admin/', 
+         contact_admin.contact_admin,
+         name='contact_admin'),
+    
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
