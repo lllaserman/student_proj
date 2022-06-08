@@ -8,6 +8,7 @@ from django.shortcuts import render
 from crispy_forms.helper import FormHelper
 from crispy_forms.layout import Submit
 
+
 class ContactForm(forms.Form):
     form_email = forms.EmailField(
         label="Ваш Ємейл Адресс"
