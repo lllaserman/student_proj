@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.urls import path
 from django.conf import settings
 from django.conf.urls.static import static
-from students.views import journals, groups, students, exams, contact_admin
+from students.views import journals, groups, students, exams, contact_admin, student_list
 
 
 urlpatterns = [
@@ -57,6 +57,8 @@ urlpatterns = [
     path('contact-admin/', 
          contact_admin.contact_admin,
          name='contact_admin'),
+    
+    path('student_list/', student_list.StudentList.as_view()),
     
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

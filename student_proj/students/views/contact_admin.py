@@ -22,7 +22,8 @@ class ContactForm(forms.Form):
         max_length=2560,
         widget=forms.Textarea
     )
-
+    
+    """ Равняем Bootstrap  """
     def __init__(self, *args, **kwargs):
         # call original initializator
         super().__init__(*args, **kwargs)
@@ -44,6 +45,7 @@ class ContactForm(forms.Form):
         # form buttons
         self.helper.add_input(Submit('send_button', 'Надіслати'))
 
+""" Проверка и отправка данных на сервер"""
 def contact_admin(request):
     # check if form was posted
     if request.method == 'POST':

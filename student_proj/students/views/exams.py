@@ -8,14 +8,14 @@ from students.models.exam import Exam
 def exams_list(request):
     exams = Exam.objects.all()
 
-    # try to order students list
+    # try to order students list (сортировка экзаменов)
     order_by = request.GET.get('order_by', '')
     if order_by in ( 'id','subject', 'date_exam', 'exam_group'):
         exams = exams.order_by(order_by)
         if request.GET.get('reverse', '') == '1':
             exams = exams.reverse()
 
-    # paginate students
+    # paginate students (по-страничное отображение данных)
     paginator = Paginator(exams, 3)
     page = request.GET.get('page')
     try:

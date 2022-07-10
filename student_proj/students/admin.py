@@ -5,6 +5,7 @@ from .models.exam import Exam
 
 
 # Register your models here.
+# Регистрация моделей в админ панеле
 admin.site.register(Student)
 admin.site.register(Group)
 admin.site.register(Exam)

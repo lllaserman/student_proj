@@ -25,6 +25,7 @@ class Exam(models.Model):
         on_delete=models.PROTECT
     )
     class Meta:
+        """ Возвращает имя модель в единичном и множественном числе."""
         verbose_name = "Экзамен"
         verbose_name_plural = "Экзамены"
         

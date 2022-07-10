@@ -48,6 +48,7 @@ class Student(models.Model):
     )
 
     class Meta:
+        """ Возвращает имя модель в единичном и множественном числе."""
         verbose_name = "Студент"
         verbose_name_plural = "Студенти"
 
@@ -58,3 +59,4 @@ class Student(models.Model):
 
         full_name = '%s %s' % (self.first_name, self.last_name )
         return full_name.strip()
+
