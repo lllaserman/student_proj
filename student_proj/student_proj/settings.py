@@ -32,24 +32,25 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
-    'django.contrib.admin',
-    'django.contrib.auth',
-    'django.contrib.contenttypes',
-    'django.contrib.sessions',
-    'django.contrib.messages',
-    'django.contrib.staticfiles',
-    'crispy_forms',
-    'students',
+    'django.contrib.admin', # приложение отвечающие за админ панель
+    'django.contrib.auth', # авторизация
+    'django.contrib.contenttypes', # интерфейс для работы с моделями
+    'django.contrib.sessions', # поддержка анонимных сеансов. Позвоволяет хранить и извлекать произвольные данные
+    'django.contrib.messages', # отоброжение сообщения для пользователей после обработки формы
+    'django.contrib.staticfiles', # сбор статических файлов из приложений
+    'crispy_forms', # редоктирование BOOTSTARP форм
+    'students', # мое приложение по базе студентов
 ]
 
+""" Промежуточное програманое обеспечение """
 MIDDLEWARE = [
-    'django.middleware.security.SecurityMiddleware',
-    'django.contrib.sessions.middleware.SessionMiddleware',
-    'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
-    'django.contrib.auth.middleware.AuthenticationMiddleware',
-    'django.contrib.messages.middleware.MessageMiddleware',
-    'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'django.middleware.security.SecurityMiddleware', # улучшение по безопасности цикла запрос/ответ
+    'django.contrib.sessions.middleware.SessionMiddleware', # поддержка анонимных сессий
+    'django.middleware.common.CommonMiddleware', # запрет доступа к пользовательским. переписование URL
+    'django.middleware.csrf.CsrfViewMiddleware', # защита от CSRF
+    'django.contrib.auth.middleware.AuthenticationMiddleware', # добавляет атрибут user, зарегестрированного пользователя
+    'django.contrib.messages.middleware.MessageMiddleware', # поддержка сообщений на основе cookie
+    'django.middleware.clickjacking.XFrameOptionsMiddleware', # защита от кликджекинга
 ]
 
 ROOT_URLCONF = 'student_proj.urls'
